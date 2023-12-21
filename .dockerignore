@@ -1,0 +1,10 @@
+.env
+pytest_cashe
+.git
+.gitignore
+README.md 
+Backend_task.docx
+.env.dev
+.env.db
+.dockerignore
+tasks.md
