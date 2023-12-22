@@ -1,0 +1,31 @@
+{% extends 'api/base.html' %}
+{% load i18n static %}
+{% block content %}
+  <p>{{ form.name.label }}: {{ form.name.value }}</p>
+  <p>{{ form.description.label }}: {{ form.description.value }}</p>
+  <p>{{ form.price.label }}: {{ form.price.value }}</p>
+  <button><a href="#" onclick="fetchSessionId(this)" id="{{ item_id }}">Buy</a></button>
+  <script>
+    fetchSessionId = (event) => {
+        var stripe = Stripe('pk_test_51OPp9yIwD1r3lRs4UTLqJcWu43AJDorH9d0oyiizgnycc89eStV31H7fhCjm1jsRpv8FogpNQQ9JOoMVgsBBQlGQ007NNnJ37Z');
+      itemId = event.id
+      fetch(`/api/buy/${itemId}/`)
+        .then(function (response) {
+            console.log(response);
+          return response.json()
+        })
+        .then(function (session) {
+            console.log(session);
+          return stripe.redirectToCheckout({ sessionId: session.session_id })
+        })
+        .then(function (result) {
+          // If `redirectToCheckout` fails due to a browser or network
+          // error, you should display the localized error message to your
+          // customer using `error.message`.
+          if (result.error) {
+            alert(result.error.message)
+          }
+        })
+    }
+  </script>
+{% endblock %}
