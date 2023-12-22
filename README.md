@@ -2,6 +2,7 @@
 
 ## Установка
 1. Копируем репозиторий
+2. Создаем файл `.env.local` по примеру `.env.template`
 3. Запускаем docker build `docker compose build`
 4. Поднимаем docker контейнеры `docker compose up`
 5. Загружаем fixtures из контейнера с Django `python manage.py loaddata api.json`
