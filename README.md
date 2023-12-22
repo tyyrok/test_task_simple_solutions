@@ -3,9 +3,10 @@
 ## Установка
 1. Копируем репозиторий
 2. Создаем файл `.env.local` по примеру `.env.template`
-3. Запускаем docker build `docker compose build`
-4. Поднимаем docker контейнеры `docker compose up`
-5. Загружаем fixtures из контейнера с Django `python manage.py loaddata api.json`
+3. В файле `app/api/templates/api/item_detail.html` в строке 11 вводим свой публичный Stripe key
+4. Запускаем docker build `docker compose build`
+5. Поднимаем docker контейнеры `docker compose up`
+6. Загружаем fixtures из контейнера с Django `python manage.py loaddata api.json`
 
 ## Доступные endpoint
 - `/buy/{item_id}/` - GET для получения json session.id
