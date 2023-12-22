@@ -22,11 +22,6 @@ RUN sed -i "s/\r$//g" /usr/src/app/entrypoint.sh
 RUN chmod +x /usr/src/app/entrypoint.sh
 #ENV PATH="/usr/src/app:$PATH"
 
-# copy entrypoint for celery
-COPY ./entrypoint.celery.sh .
-RUN sed -i "s/\r$//g" /usr/src/app/entrypoint.celery.sh
-RUN chmod +x /usr/src/app/entrypoint.celery.sh
-
 # copy project
 COPY . .
 

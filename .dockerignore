@@ -6,5 +6,6 @@ README.md
 Backend_task.docx
 .env.dev
 .env.db
+.env.local
 .dockerignore
 tasks.md

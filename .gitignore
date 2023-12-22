@@ -33,4 +33,5 @@ db.sqlite3-journal
 .env/
 .env.db
 .env.dev
+.env.local
 tasks.md

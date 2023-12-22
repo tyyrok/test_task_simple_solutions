@@ -1,0 +1,20 @@
+[
+    {
+        "model": "api.item",
+        "pk": 1,
+        "fields": {
+            "name": "Test product",
+            "price": "34.30",
+            "description": "Test description"
+        }
+    },
+    {
+        "model": "api.item",
+        "pk": 2,
+        "fields": {
+            "name": "Test product 2",
+            "price": "14.00",
+            "description": "Very simple product"
+        }
+    }
+]

@@ -1,21 +1,20 @@
 {% extends 'api/base.html' %}
 {% load i18n static %}
 {% block content %}
-  <p>{{ form.name.label }}: {{ form.name.value }}</p>
-  <p>{{ form.description.label }}: {{ form.description.value }}</p>
-  <p>{{ form.price.label }}: {{ form.price.value }}</p>
+  <p>Название товара: {{ form.name.value }}</p>
+  <p>Описание товара: {{ form.description.value }}</p>
+  <p>Цена: {{ form.price.value }}</p>
   <button><a href="#" onclick="fetchSessionId(this)" id="{{ item_id }}">Buy</a></button>
+
   <script>
     fetchSessionId = (event) => {
-        var stripe = Stripe('pk_test_51OPp9yIwD1r3lRs4UTLqJcWu43AJDorH9d0oyiizgnycc89eStV31H7fhCjm1jsRpv8FogpNQQ9JOoMVgsBBQlGQ007NNnJ37Z');
+      var stripe = Stripe('pk_test_51OPp9yIwD1r3lRs4UTLqJcWu43AJDorH9d0oyiizgnycc89eStV31H7fhCjm1jsRpv8FogpNQQ9JOoMVgsBBQlGQ007NNnJ37Z')
       itemId = event.id
       fetch(`/api/buy/${itemId}/`)
         .then(function (response) {
-            console.log(response);
           return response.json()
         })
         .then(function (session) {
-            console.log(session);
           return stripe.redirectToCheckout({ sessionId: session.session_id })
         })
         .then(function (result) {
