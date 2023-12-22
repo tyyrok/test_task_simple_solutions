@@ -10,7 +10,7 @@
     fetchSessionId = (event) => {
       var stripe = Stripe('pk_test_51OPp9yIwD1r3lRs4UTLqJcWu43AJDorH9d0oyiizgnycc89eStV31H7fhCjm1jsRpv8FogpNQQ9JOoMVgsBBQlGQ007NNnJ37Z')
       itemId = event.id
-      fetch(`/api/buy/${itemId}/`)
+      fetch(`/buy/${itemId}/`)
         .then(function (response) {
           return response.json()
         })

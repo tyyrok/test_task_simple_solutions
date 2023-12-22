@@ -1,11 +1,9 @@
-import stripe
 from django.shortcuts import render
 from django.views import View
 from django.http import HttpResponseNotFound, JsonResponse
 
 from api.models import Item, ItemStripe
 from api.forms import ItemForm
-from app.settings import STRIPE_API_KEY
 from api.utils import get_session_id, create_stripe_product
 
 
